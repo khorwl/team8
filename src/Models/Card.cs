@@ -10,6 +10,8 @@
         
         public bool isOpened { get; set; }
         
+        public bool isGuessed { get; set; }
+        
         public int cardNumber { get; set; }
     }
 }
