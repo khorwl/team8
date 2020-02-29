@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './styles.css'
+import joker from './images/card-joker.png'
 
 export default class Cell extends React.Component {
     constructor(props) {
@@ -8,9 +9,13 @@ export default class Cell extends React.Component {
     }
 
     render() {
-        return (<td className={styles.cell} style={{backgroundImage: 'url("/images/card-joker.png")'}}>
-            <div className={styles.card} id="demo">
-                <div className={[styles.cardSide, styles.cardBack]}/>
+        console.log(`${joker}`);
+        return (<td className={styles.cell}>
+            <div className={styles.card} id="demo" style={{
+                backgroundImage: `url(${joker})`,
+                backgroundSize: 'contain'
+            }}>
+                <div className={[styles.cardSide, styles.cardBack]} />
                 <div className={[styles.cardSide, styles.cardFace]}/>
             </div>
         </td>);
