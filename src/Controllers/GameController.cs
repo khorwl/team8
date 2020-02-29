@@ -11,7 +11,7 @@ namespace thegame.Controllers
         private Game.Game game;
         private Dictionary<int, Game.Game> games;//возможно потом здесь будет БД
         private int currentIndex;
-        GameController()
+        public GameController()
         {
             this.game = new Game.Game();
             games = new Dictionary<int, Game.Game>();
@@ -21,20 +21,20 @@ namespace thegame.Controllers
         [HttpGet("score")]
         public IActionResult Score(int id)
         {
-            //var score = games[id].GetScore();
-            var score = game.GetScore();
+            var score = games[id].GetScore();
+            //var score = game.GetScore();
             return Ok(score);
         }
 
-        [HttpPost]
-        public IActionResult RollCard(CardDTO card)
+        [HttpPost("RollCard")]
+        public IActionResult RollCard(int id, CardDTO card)
         {
-            //var card = games[id].RollCard(x, y);
-            game.GetCard(card.x, card.y);
+            var cardFormGame = games[id].GetCard(card.x, card.y);
+            //game.GetCard(card.x, card.y);
             return Ok();
         }
 
-        [HttpPost]
+        [HttpPost("StartGame")]
         public IActionResult StartGame()
         {
             currentIndex++;
@@ -42,7 +42,7 @@ namespace thegame.Controllers
             return Ok(currentIndex);
         }
 
-        [HttpPost]
+        [HttpPost("EndGame")]
         public IActionResult EndGame(int id)
         {
             games.Remove(id);
