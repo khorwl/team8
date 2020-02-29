@@ -3,17 +3,6 @@ body {
     font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
-.field {
-    margin: auto;
-    border-spacing: 5px;
-}
-
-.row {
-    position: relative;
-    min-height: 120px;
-    perspective: 600px;
-}
-
 .cell {
     position: relative;
     min-width: 120px;
