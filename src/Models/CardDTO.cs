@@ -1,6 +1,6 @@
 ﻿namespace thegame.Models
 {
-    public class Card
+    public class CardDTO
     {
         public string ImageLink { get; set; }
         
